@@ -1,0 +1,87 @@
+
+
+
+<app-header [headerTrendingMovies]="movies"></app-header>
+
+<div class="container">
+
+<h3>Trending Movies</h3>
+<div class="brdr my-4"></div>
+<div class="row">
+<div class="col-md-4">
+  <div class="bro my-5 w-25"></div>
+  <h2>Trending Movies <br>TO Watch Right Now</h2>
+    <p class="secondColor">Trending Movies TO Watch Right Now</p>
+
+  <div class="bro my-5 w-100"></div>
+
+</div>
+<div class="col-md-2  shadow position-relative "  *ngFor="let movie of movies ; let i=index"  >
+<a [routerLink]="['/movieDetails',movie.id]" *ngIf="i<10">
+
+  <div class="movie  ">
+    <img src="{{imagePrifex+movie.poster_path}}" alt="" srcset="" class="w-100">
+  <h2 class="py-3    h6"> {{movie.title}}</h2>
+
+  <div class="vote position-absolute  end-0 top-0">
+  {{movie.vote_average}}
+  </div>
+  </div>
+
+</a>
+
+</div>
+</div>
+
+
+
+
+<div class="row my-5">
+  <div class="col-md-4">
+    <div class="bro my-5 w-25"></div>
+
+    <h2>Trending TV <br>TO Watch Right Now</h2>
+    <p class="secondColor">Trending TV TO Watch Right Now</p>
+    <div class="bro my-5 w-100"></div>
+
+  </div>
+  <div class="col-md-2  shadow position-relative "  *ngFor="let movie of tv">
+  <div class="movie  ">
+    <img src="{{imagePrifex+movie.poster_path}}" alt="" srcset="" class="w-100">
+  <h2 class="py-3    h6"> {{movie.name}}</h2>
+
+  <div class="vote position-absolute  end-0 top-0">
+  {{movie.vote_average}}
+  </div>
+  </div>
+
+  </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="bro my-5 w-25"></div>
+      <h2>Trending People <br>TO Watch Right Now</h2>
+      <p class="secondColor">Trending People TO Watch Right Now</p>
+
+      <div class="bro my-5 w-100"></div>
+
+    </div>
+    <div class="col-md-2  shadow position-relative "  *ngFor="let movie of people">
+
+    <div class="movie  ">
+      <img src="{{imagePrifex+movie.profile_path}}" alt="" srcset="" class="w-100">
+    <h2 class="py-3    h6"> {{movie.name}}</h2>
+
+    <div class="vote position-absolute  end-0 top-0">
+    {{movie.popularity}}
+    </div>
+    </div>
+
+    </div>
+    </div>
+
+</div>
+<app-footer></app-footer>
